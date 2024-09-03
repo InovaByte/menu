@@ -1,0 +1,347 @@
+<!doctype html>
+<html lang="pt-br">
+    <head>
+        <meta charset="UTF-8" />
+        <title>Menu do Restaurante</title>
+        <link href="assets/css/styles.css" type="text/css" rel="stylesheet" />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=DM+Serif+Text:ital@0;1&family=New+Amsterdam&display=swap"
+            rel="stylesheet" />
+        <style>
+            /* Adicionando animações para os modais */
+            .overlay {
+                display: none; /* Inicialmente escondido */
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background: rgba(0, 0, 0, 0.5);
+                justify-content: center;
+                align-items: center;
+                opacity: 0;
+                transition: opacity 0.3s ease-in-out;
+            }
+            .overlay.show {
+                display: flex;
+                opacity: 1;
+            }
+            .overlay-content {
+                background: white;
+                padding: 20px;
+                border-radius: 8px;
+                max-width: 600px;
+                width: 100%;
+                animation: fadeIn 0.3s ease-in-out;
+            }
+            @keyframes fadeIn {
+                from { opacity: 0; }
+                to { opacity: 1; }
+            }
+        </style>
+    </head>
+    <body>
+        <header class="header">
+            <div class="topo">
+                <h1 class="logo">Nome do Restaurante</h1>
+                <a href="#" class="cart">
+                    <img src="assets/images/cart.png" alt="carrinho" />
+                    <span id="cart-indicator" class="cart-indicator">0</span>
+                </a>
+            </div>
+        </header>
+        <main>
+            <div class="container">
+                <ul class="category-list">
+                    <!-- Botões das Categorias -->
+                    <li>
+                        <button id="bebidas-btn" class="category-toggle" data-target="bebidas-content">Bebidas</button>
+                    </li>
+                    <li>
+                        <button id="pizzas-btn" class="category-toggle" data-target="pizzas-content">Pizzas</button>
+                    </li>
+                    <li>
+                        <button id="hamburguer-btn" class="category-toggle" data-target="hamburguer-content">
+                            Hamburguer
+                        </button>
+                    </li>
+                    <li>
+                        <button id="yakisoba-btn" class="category-toggle" data-target="yakisoba-content">
+                            Yakisobas
+                        </button>
+                    </li>
+                    <li>
+                        <button id="cigarros-btn" class="category-toggle" data-target="cigarros-content">
+                            Cigarros
+                        </button>
+                    </li>
+                    <li><button id="balas-btn" class="category-toggle" data-target="balas-content">Balas</button></li>
+                    <li>
+                        <button id="tortas-btn" class="category-toggle" data-target="tortas-content">Tortas</button>
+                    </li>
+                    <li><button id="sushi-btn" class="category-toggle" data-target="sushi-content">Sushi</button></li>
+                    <li>
+                        <button id="sobremesas-btn" class="category-toggle" data-target="sobremesas-content">
+                            Sobremesas
+                        </button>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Conteúdo das Categorias -->
+            <div id="bebidas-content" class="category-content">
+                <h3>Bebidas</h3>
+                <ul class="product-list">
+                    <li class="menu-item">
+                        <img src="assets/images/cocacola.jpg" alt="Coca-cola" />
+                        Coca-Cola
+                        <strong>2.99</strong>
+                        <button class="add-button" data-name="Coca-Cola" data-price="2.99">+</button>
+                    </li>
+                    <li class="menu-item">
+                        <img src="assets/images/pepsi.jpg" alt="Pepsi" />
+                        Pepsi
+                        <strong>2.99</strong>
+                        <button class="add-button" data-name="Pepsi" data-price="2.99">+</button>
+                    </li>
+                    <li class="menu-item">
+                        <img src="assets/images/agua.jpg" alt="Água Mineral" />
+                        Água Mineral
+                        <strong>2.99</strong>
+                        <button class="add-button" data-name="Água Mineral" data-price="2.99">+</button>
+                    </li>
+                </ul>
+            </div>
+            <div id="pizzas-content" class="category-content">
+                <h3>Pizzas</h3>
+                <ul class="product-list">
+                    <li class="menu-item">
+                        <img src="assets/images/pizzam.jfif" alt="Margherita" />
+                        Margherita
+                        <strong>2.99</strong>
+                        <button class="add-button" data-name="Margherita" data-price="2.99">+</button>
+                    </li>
+                    <li class="menu-item">
+                        <img src="assets/images/pizzac.jfif" alt="Calabresa" />
+                        Calabresa
+                        <strong>2.99</strong>
+                        <button class="add-button" data-name="Calabresa" data-price="2.99">+</button>
+                    </li>
+                    <li class="menu-item">
+                        <img src="assets/images/pizzap.jpg" alt="Portuguesa" />
+                        Portuguesa
+                        <strong>2.99</strong>
+                        <button class="add-button" data-name="Portuguesa" data-price="2.99">+</button>
+                    </li>
+                </ul>
+            </div>
+            <div id="hamburguer-content" class="category-content">
+                <h3>Hamburguer</h3>
+                <ul class="product-list">
+                    <li class="menu-item">
+                        <img src="assets/images/Cheeseburger.jfif" alt="Cheeseburger" />
+                        Cheeseburger
+                        <strong>2.99</strong>
+                        <button class="add-button" data-name="Cheeseburger" data-price="2.99">+</button>
+                    </li>
+                    <li class="menu-item">
+                        <img src="assets/images/BaconBurger.jfif" alt="Bacon Burger" />
+                        Bacon Burger
+                        <strong>2.99</strong>
+                        <button class="add-button" data-name="Bacon Burger" data-price="2.99">+</button>
+                    </li>
+                    <li class="menu-item">
+                        <img src="assets/images/VeggieBurger.jfif" alt="Veggie Burger" />
+                        Veggie Burger
+                        <strong>2.99</strong>
+                        <button class="add-button" data-name="Veggie Burger" data-price="2.99">+</button>
+                    </li>
+                </ul>
+            </div>
+            <div id="yakisoba-content" class="category-content">
+                <h3>Yakisobas</h3>
+                <ul class="product-list">
+                    <li class="menu-item">
+                        <img src="assets/images/YakisobaFrango.jfif" alt="Yakisoba de Frango" />
+                        Yakisoba de Frango
+                        <strong>2.99</strong>
+                        <button class="add-button" data-name="Yakisoba de Frango" data-price="2.99">+</button>
+                    </li>
+                    <li class="menu-item">
+                        <img src="assets/images/YakisobaCarne.jpg" alt="Yakisoba de Carne" />
+                        Yakisoba de Carne
+                        <strong>2.99</strong>
+                        <button class="add-button" data-name="Yakisoba de Carne" data-price="2.99">+</button>
+                    </li>
+                    <li class="menu-item">
+                        <img src="assets/images/Yakisobavegetariano.jfif" alt="Yakisoba Vegetariano" />
+                        Yakisoba Vegetariano
+                        <strong>2.99</strong>
+                        <button class="add-button" data-name="Yakisoba Vegetariano" data-price="2.99">+</button>
+                    </li>
+                </ul>
+            </div>
+            <div id="cigarros-content" class="category-content">
+                <h3>Cigarros</h3>
+                <ul class="product-list">
+                    <li class="menu-item">
+                        <img src="assets/images/cigarrom.jfif" alt="Marlboro" />
+                        Marlboro
+                        <strong>2.99</strong>
+                        <button class="add-button" data-name="Marlboro" data-price="2.99">+</button>
+                    </li>
+                    <li class="menu-item">
+                        <img src="assets/images/cigarroc.jfif" alt="Camel" />
+                        Camel
+                        <strong>2.99</strong>
+                        <button class="add-button" data-name="Camel" data-price="2.99">+</button>
+                    </li>
+                    <li class="menu-item">
+                        <img src="assets/images/cigarrot.jfif" alt="Lucky Strike" />
+                        Lucky Strike
+                        <strong>2.99</strong>
+                        <button class="add-button" data-name="Lucky Strike" data-price="2.99">+</button>
+                    </li>
+                </ul>
+            </div>
+            <div id="balas-content" class="category-content">
+                <h3>Balas</h3>
+                <ul class="product-list">
+                    <li class="menu-item">
+                        <img src="assets/images/balab.jpg" alt="Balas de Morango" />
+                        Balas de Morango
+                        <strong>2.99</strong>
+                        <button class="add-button" data-name="Balas de Morango" data-price="2.99">+</button>
+                    </li>
+                    <li class="menu-item">
+                        <img src="assets/images/balal.jpg" alt="Balas de Limão" />
+                        Balas de Limão
+                        <strong>2.99</strong>
+                        <button class="add-button" data-name="Balas de Limão" data-price="2.99">+</button>
+                    </li>
+                    <li class="menu-item">
+                        <img src="assets/images/balac.jpg" alt="Balas de Chocolate" />
+                        Balas de Chocolate
+                        <strong>2.99</strong>
+                        <button class="add-button" data-name="Balas de Chocolate" data-price="2.99">+</button>
+                    </li>
+                </ul>
+            </div>
+            <div id="tortas-content" class="category-content">
+                <h3>Tortas</h3>
+                <ul class="product-list">
+                    <li class="menu-item">
+                        <img src="assets/images/torta1.jpg" alt="Torta de Limão" />
+                        Torta de Limão
+                        <strong>2.99</strong>
+                        <button class="add-button" data-name="Torta de Limão" data-price="2.99">+</button>
+                    </li>
+                    <li class="menu-item">
+                        <img src="assets/images/torta2.jpg" alt="Torta de Morango" />
+                        Torta de Morango
+                        <strong>2.99</strong>
+                        <button class="add-button" data-name="Torta de Morango" data-price="2.99">+</button>
+                    </li>
+                    <li class="menu-item">
+                        <img src="assets/images/torta3.jpg" alt="Torta de Chocolate" />
+                        Torta de Chocolate
+                        <strong>2.99</strong>
+                        <button class="add-button" data-name="Torta de Chocolate" data-price="2.99">+</button>
+                    </li>
+                </ul>
+            </div>
+            <div id="sushi-content" class="category-content">
+                <h3>Sushi</h3>
+                <ul class="product-list">
+                    <li class="menu-item">
+                        <img src="assets/images/sushi1.jfif" alt="Sushi de Salmão" />
+                        Sushi de Salmão
+                        <strong>2.99</strong>
+                        <button class="add-button" data-name="Sushi de Salmão" data-price="2.99">+</button>
+                    </li>
+                    <li class="menu-item">
+                        <img src="assets/images/sushi2.jfif" alt="Sushi de Atum" />
+                        Sushi de Atum
+                        <strong>2.99</strong>
+                        <button class="add-button" data-name="Sushi de Atum" data-price="2.99">+</button>
+                    </li>
+                    <li class="menu-item">
+                        <img src="assets/images/sushi3.jfif" alt="Sushi Vegetariano" />
+                        Sushi Vegetariano
+                        <strong>2.99</strong>
+                        <button class="add-button" data-name="Sushi Vegetariano" data-price="2.99">+</button>
+                    </li>
+                </ul>
+            </div>
+            <div id="sobremesas-content" class="category-content">
+                <h3>Sobremesas</h3>
+                <ul class="product-list">
+                    <li class="menu-item">
+                        <img src="assets/images/sobremesa1.jpg" alt="Cheesecake" />
+                        Cheesecake
+                        <strong>2.99</strong>
+                        <button class="add-button" data-name="Cheesecake" data-price="2.99">+</button>
+                    </li>
+                    <li class="menu-item">
+                        <img src="assets/images/sobremesa2.jpg" alt="Mousse de Chocolate" />
+                        Mousse de Chocolate
+                        <strong>2.99</strong>
+                        <button class="add-button" data-name="Mousse de Chocolate" data-price="2.99">+</button>
+                    </li>
+                    <li class="menu-item">
+                        <img src="assets/images/sobremesa3.jpg" alt="Pudim" />
+                        Pudim
+                        <strong>2.99</strong>
+                        <button class="add-button" data-name="Pudim" data-price="2.99">+</button>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Overlay Principal -->
+            <div id="overlay" class="overlay" aria-labelledby="overlay-title" aria-describedby="overlay-description">
+                <div id="overlay-content" class="overlay-content" role="dialog" aria-labelledby="overlay-title">
+                    <h2 id="overlay-title">Conteúdo da Categoria</h2>
+                    <!-- O conteúdo das categorias será carregado dinamicamente aqui -->
+                    <button class="back-to-menu">Fechar</button>
+                </div>
+            </div>
+
+            <!-- Overlay de Detalhes do Produto -->
+            <div
+                id="product-details-overlay"
+                class="overlay"
+                aria-labelledby="product-details-title"
+                aria-describedby="product-details-description">
+                <div
+                    id="product-details-content"
+                    class="overlay-content"
+                    role="dialog"
+                    aria-labelledby="product-details-title">
+                    <div class="product-details">
+                        <img id="product-image" src="" alt="Imagem do Produto" class="product-image" />
+                        <p>Imagens ilustrativas</p>
+                        <label for="product-name">Descrição:</label>
+                        <span id="product-name"></span>
+                        <label for="product-quantity">Quantidade:</label>
+                        <input type="number" id="product-quantity" name="product-quantity" min="1" value="1" required />
+                        <label for="product-observation">Observação:</label>
+                        <textarea
+                            id="product-observation"
+                            name="product-observation"
+                            rows="4"
+                            placeholder="Digite suas observações aqui..."></textarea>
+                        <button id="adicionar-details">Adicionar</button>
+                    </div>
+                </div>
+            </div>
+        </main>
+        <footer>
+            <div class="container">
+                <p><strong>Copyright:</strong>2024 Restaurante Exemplo - <strong>JeanVieira</strong></p>
+            </div>
+        </footer>
+        <script src="assets/js/script.js"></script>
+    </body>
+</html>
